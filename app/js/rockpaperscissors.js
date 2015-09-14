@@ -20,19 +20,16 @@ function randomPlay() {
 ////////////////////////////////////////////////
 /*           Write Your Code Below            */
 ////////////////////////////////////////////////
+var winner;
+var playerMove;
+var computerMove;
 
 function getPlayerMove(move) {
-    // Write an expression that operates on a variable called `move`
-    // If a `move` has a value, your expression should evaluate to that value.
-    // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    return var move || getInput();
+    return move || getInput();
 }
 
 function getComputerMove(move) {
-    // Write an expression that operates on a variable called `move`
-    // If a `move` has a value, your expression should evaluate to that value.
-    // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return var move || randomPlay();
+    return move || randomPlay();
 }
 
 function getWinner(playerMove,computerMove) {
@@ -71,17 +68,32 @@ function getWinner(playerMove,computerMove) {
         break;
         case "paper":
         winner = "player";
-        break;}
+        break;
+        }
+    
+    }
     return winner;
-}
 }
 
 function playToFive() {
-    console.log("Let's play Rock, Paper, Scissors");
-    var playerWins = 0;
-    var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
-    return [playerWins, computerWins];
+  console.log("Let's play Rock Paper Scissors");
+  var playerWins = 0;
+  var computerWins = 0;
+  while (playerWins < 5 && computerWins < 5){
+
+
+     if (winner ==="player") {
+    console.log("Player chose " + playerMove + " while Computer chose "+ computerMove + "." + " Player wins this round!");
+        playerWins ++;
+    }else if (winner === "computer"){
+        console.log("Player chose " + playerMove + " while Computer chose " + computerMove + "." + " Computer wins this round!");
+        computerWins ++;
+    } else if (winner === "tie") {
+        console.log ("Tie. No-one wins this round")
+    }
+    console.log("The score is currently Player: " + playerWins + " and Computer: " + computerWins + ".")
+
+  }
+  return [playerWins, computerWins];
 }
 
